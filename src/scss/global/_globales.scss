@@ -1,0 +1,45 @@
+@use '../global/variables' as *;
+@use '../mixins/mixins' as *;
+
+// globales
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 2rem;
+  margin-top: 4rem;
+  background-color: $negro;
+  line-height: 1.8;
+  font-family: 'Ubuntu Mono', sans-serif;
+  color: $blanco;
+
+  &::-webkit-scrollbar {
+    width: 1rem;
+    background-color: $verdeCompletada;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $verde;
+    border-radius: 1rem;
+  }
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 3.5rem;
+}
+
+h3 {
+  font-size: 3rem;
+}

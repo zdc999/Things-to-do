@@ -1,0 +1,110 @@
+@use '../global/variables' as*;
+@use '../mixins/mixins' as*;
+
+// contenedor tareas
+.tareas {
+  width: 100%;
+  min-height: 60rem;
+  background-color: $blanco;
+  padding: 2rem;
+  border-radius: 2.6rem;
+  box-shadow: 1px 1px 10px #ffffff70;
+  margin-bottom: 2rem;
+
+  @include phone {}
+
+  &__titulo {
+    color: #1B2430;
+    text-align: center;
+    margin: 2rem 0;
+  }
+}
+
+// componente tarea
+.tarea {
+  min-height: 6.5rem;
+  background-color: $negro;
+  padding: .8rem 1.5rem .8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: .7rem;
+  border: .1rem solid $blanco;
+  cursor: pointer;
+  transition: .1s ease-in-out all;
+
+  &:hover {
+    border: .3rem solid $verdeCompletada;
+  }
+
+
+  &__texto {
+    width: 100%;
+    height: 100%;
+    font-size: 2rem;
+    display: grid;
+    overflow-wrap: anywhere; // expande el texto hacia abajo
+  }
+
+  &__iconos {
+    width: 3rem;
+    height: 3rem;
+    font-size: 3rem;
+    user-select: none;
+
+    &:active {
+      color: $rojo;
+    }
+  }
+
+}
+
+
+
+// Degrade tareas
+
+.tarea:nth-child(3n + 1) {
+  background-color: $negro;
+}
+
+.tarea:nth-child(3n + 2) {
+  background-color: lighten($negro, 10%);
+}
+
+.tarea:nth-child(3n + 3) {
+  background-color: lighten($negro, 20%);
+}
+
+@include desktop {
+  .tarea:nth-child(4n + 1) {
+    background-color: $negro;
+  }
+
+  .tarea:nth-child(4n + 2) {
+    background-color: lighten($negro, 5%);
+  }
+
+  .tarea:nth-child(4n + 3) {
+    background-color: lighten($negro, 10%);
+  }
+
+  .tarea:nth-child(4n + 4) {
+    background-color: lighten($negro, 20%);
+  }
+}
+
+.tarea.tarea--completada {
+  background-color: $verdeCompletada;
+  text-decoration: line-through;
+  font-weight: bold;
+
+  .tarea__texto {
+    &::after {
+      content: 'Completed';
+    }
+  }
+
+  &:hover {
+    border: .3rem solid $negro;
+  }
+}

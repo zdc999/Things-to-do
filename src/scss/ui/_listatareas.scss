@@ -1,0 +1,17 @@
+@use '../global/variables' as*;
+@use '../mixins/mixins' as*;
+
+.lista-tareas {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  margin-top: 1.5rem;
+  width: auto;
+  user-select: none;
+  gap: 1rem;
+
+  @include desktop {
+
+    grid-template-columns: 1fr 1fr;
+  }
+}

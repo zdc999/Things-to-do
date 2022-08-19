@@ -1,0 +1,43 @@
+@use '../global/variables' as *;
+@use '../mixins/mixins' as *;
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 80%;
+
+  @include tablet {
+    width: 70%;
+  }
+
+  @include desktop {
+    width: 60%
+  }
+
+  @include desktopXL {
+    width: 50%
+  }
+
+}
+
+.titulo-tarea {
+  color: $blanco;
+  border: .1rem solid $blanco;
+  padding: 1rem;
+  margin-bottom: 5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  &-icono {
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,69 @@
+@use '../global/variables' as*;
+@use '../mixins/mixins' as*;
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 1.5rem;
+
+  @include desktop {
+    flex-direction: row;
+    row-gap: 0;
+  }
+
+  &__input {
+    min-height: 100%;
+    outline: none;
+    width: 100%;
+    font-size: 1.8rem;
+    background-color: $blanco;
+    padding: 1.6rem;
+    border-radius: .4rem 0 0 .4rem;
+    border: .2rem solid $verde;
+    transition: .2s;
+    transition: all .1s ease-in-out;
+
+    &::selection {
+      background-color: $rojo;
+    }
+
+    &:focus {
+      background-color: lighten($verde, 65%);
+      font-weight: bold;
+
+      &::placeholder {
+        color: $negro;
+      }
+    }
+
+    @include tablet {
+      flex: 3 1;
+    }
+
+
+  }
+
+  &__boton {
+    padding: 1.6rem;
+    font-size: 1.8rem;
+    border: .2rem solid transparent;
+    border-radius: 0 .4rem .4rem 0;
+    outline: none;
+    background-color: $verde;
+    cursor: pointer;
+    color: $blanco;
+    width: 100%;
+    transition: all .1s ease-in-out;
+
+    &:hover {
+      background-color: darken($verde, 10%);
+    }
+
+    @include tablet {
+      flex: 1 1;
+    }
+
+  }
+}
